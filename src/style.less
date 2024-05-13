@@ -1,0 +1,768 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: GilroyRegular;
+    src: url("../fonts/Gilroy-Regular.ttf");
+}
+
+@font-face {
+    font-family: GilroyMedium;
+    src: url("../fonts/Gilroy-Medium.ttf");
+}
+
+@font-face {
+    font-family: GilroyBold;
+    src: url("../fonts/Gilroy-Bold.ttf");
+}
+
+@font-face {
+    font-family: GilroyExtraBold;
+    src: url("../fonts/Gilroy-Extrabold.ttf");
+}
+
+@font-face {
+    font-family: Tavolga;
+    src: url("../fonts/Ivan Petrov - Tavolga Free.ttf");
+}
+
+.container {
+    max-width: 1140px;
+    .margin-auto
+}
+
+.header {
+    background-color: @page-color-pink;
+    padding: 36px 0 25px 0;
+    .container {
+        .flex-center();
+        align-items: center;
+        .menu ul {
+            width: 315px;
+            list-style: none;
+            .flex-center();
+            li {
+                padding-bottom: 3px;
+                border-bottom: 2px solid transparent;
+                &:hover {
+                    border-bottom: 2px solid @page-main-color;
+                    transition-duration: 0.5s;
+                }
+                a {
+                    justify-content: space-between;
+                    font-size: 14px;
+                    font-family: GilroyMedium, sans-serif;
+                    text-decoration: none;
+                    color: @page-main-color;
+                }
+            }
+        }
+        .phone {
+            font-size: 16px;
+            font-family: GilroyBold, sans-serif;
+            color: @text-color-white;
+            font-weight: bold;
+        }
+    }
+}
+
+.main {
+    padding: 127px 0 108px 0;
+    background-color: @page-color-pink;
+    overflow: hidden;
+    .container {
+        .flex-center();
+        .main-info {
+            max-width: 601px;
+            .main-title {
+                font-size: 55px;
+                font-family: Tavolga, sans-serif;
+                color: @text-color-white;
+                line-height: 1.091;
+                margin-bottom: 60px;
+            }
+            .main-description {
+                width: 349px;
+                font-size: 18px;
+                font-family: Tavolga, sans-serif;
+                color: @text-color-white;
+                line-height: 1.389;
+                margin-bottom: 80px;
+            }
+            .main-btn {
+                width: 240px;
+                height: 60px;
+                text-align: center;
+                animation-name: btn-animation-reverse;
+                animation-duration: 0.5s;
+            }
+        }
+        .main-image {
+            position: relative;
+            height: 438px;
+            display: flex;
+            z-index: 1;
+            &::before {
+                content: "";
+                border-radius: 50%;
+                width: 250px;
+                height: 250px;
+                border: 2px solid @page-main-color;
+                position: absolute;
+                top: calc(50% - 125px);
+                left: calc(50% - 125px);
+                animation: logo-animation 3s ease infinite;
+                z-index: -1;
+            }
+            &::after {
+                content: "";
+                border-radius: 50%;
+                width: 250px;
+                height: 250px;
+                border: 2px solid @page-main-color;
+                position: absolute;
+                top: calc(50% - 125px);
+                left: calc(50% - 125px);
+                animation: logo-animation 3s ease infinite;
+                animation-delay: .5s;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+.btn {
+    background-image: -moz-linear-gradient(@btn-color);
+    background-image: -webkit-linear-gradient(@btn-color);
+    background-image: -ms-linear-gradient(@btn-color);
+    border-radius: 30px;
+    border: 0;
+    font-size: 18px;
+    font-family: GilroyBold, sans-serif;
+    color: @text-color-white;
+    outline: 0;
+    cursor: pointer;
+    &:hover {
+        animation-name: btn-animation;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+}
+
+.about {
+    background-color: @page-color-beige;
+    padding: 119px 0 120px 0;
+    .container {
+        flex-wrap: wrap;
+        .flex-center();
+        align-items: flex-end;
+        .about-info {
+            width: 475px;
+            .about-title {
+                font-size: 45px;
+                font-family: Tavolga, sans-serif;
+                color: @text-color-dark;
+                line-height: 1.222;
+                margin-bottom: 60px;
+            }
+
+            .about-description {
+                font-size: 18px;
+                font-family: GilroyRegular, sans-serif;
+                color: @text-color-dark;
+                line-height: 1.556;
+                width: 402px;
+            }
+        }
+        .about-advantages {
+            margin-top: 58px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-column-gap: 86px;
+            .about-advantage {
+                display: grid;
+                grid-template-rows: [number] 70px [title] 23px [description] 102px;
+                gap: 13px;
+                .about-advantage-number {
+                    height: 70px;
+                    width: 70px;
+                    text-align: center;
+                    background-color: @page-main-color;
+                    border-radius: 50%;
+                    animation: advantage-animation1-reverse 0.5s;
+                }
+                .about-advantage-title {
+                    font-size: 20px;
+                    font-family: GilroyExtraBold, sans-serif;
+                    color: @text-color-dark;
+                }
+                .about-advantage-description {
+                    padding-top: 7px;
+                    font-size: 15px;
+                    font-family: GilroyMedium, sans-serif;
+                    color: @text-color-dark;
+                    line-height: 1.333;
+                }
+                &:hover {
+                    .about-advantage-number {
+                        animation: advantage-animation1 .5s forwards;
+                    }
+                    .about-advantage-number {
+                        span {
+                            animation: advantage-animation2 .5s forwards;
+                        }
+                    }
+                }
+                span {
+                    grid-row: 2;
+                    font-size: 60px;
+                    font-family: GilroyExtraBold, sans-serif;
+                    color: @text-color-white;
+                    position: relative;
+                    bottom: -10px;
+                    animation: advantage-animation2-reverse 0.5s;
+                }
+            }
+        }
+    }
+}
+
+.products {
+    padding: 120px 0;
+    background-color: @page-color-pink;
+    .container {
+        display: grid;
+        grid-template-columns: repeat(4, 263px);
+        grid-template-rows: repeat(2, auto);
+        gap: 143px 29px;
+        .products-title {
+            grid-column: 1 / 5;
+            justify-self: center;
+            font-size: 45px;
+            font-family: Tavolga, sans-serif;
+            color: @text-color-white;
+        }
+        .product-item {
+            width: 263px;
+            height: 229px;
+            border: 2px solid white;
+            border-radius: 20px;
+            box-sizing: border-box;
+            padding: 0 19px 25px 19px;
+            justify-items: center;
+            position: relative;
+            display: grid;
+            grid-template-rows: 83px auto auto;
+            grid-template-columns: auto;
+            align-items: center;
+            row-gap: 26px;
+            .product-image {
+                position: absolute;
+                top: -60px;
+                animation: item-animation-reverse 0.5s ease;
+            }
+
+            .product-title {
+                grid-row: 2 / 3;
+                font-size: 18px;
+                font-family: Tavolga, sans-serif;
+                color: @text-color-white;
+            }
+
+            .product-order {
+                grid-row: 3 / 4;
+                display: grid;
+                grid-template-rows: 1fr;
+                grid-template-columns: 57px 130px;
+                justify-content: space-between;
+                column-gap: 35px;
+                .product-order-info {
+                    font-size: 15px;
+                    font-family: GilroyRegular, sans-serif;
+                    color: @text-color-white;
+                    grid-column: 1 / 2;
+                    display: grid;
+                    align-content: space-between;
+                    span {
+                        &:first-child {
+                            margin-bottom: 2px;
+                        }
+                    }
+                }
+                .product-btn {
+                    width: 130px;
+                    height: 50px;
+                    grid-column: 2 / 3;
+                }
+            }
+
+            &:hover {
+                .product-image {
+                    animation: item-animation 0.5s ease forwards;
+                }
+            }
+        }
+    }
+}
+
+.order {
+    background-color: @page-color-beige;
+    .container {
+        .flex-center();
+        padding: 98px 169px 120px 30px;
+        align-items: flex-end;
+        position: relative;
+        .order-form {
+            max-width: 406px;
+            .order-title {
+                font-size: 45px;
+                font-family: Tavolga, sans-serif;
+                color: @text-color-dark;
+                line-height: 1.222;
+                -moz-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+                -webkit-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+                -ms-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+                margin-bottom: 41px;
+            }
+
+            .order-info {
+                font-size: 18px;
+                font-family: GilrolRegular, sans-serif;
+                color: @text-color-dark;
+                line-height: 1.556;
+                -moz-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+                -webkit-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+                -ms-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+                margin-bottom: 48px;
+            }
+
+            .order-choice {
+                margin-bottom: 40px;
+                .order-choice-text {
+                    margin-bottom: 20px;
+                }
+            }
+
+            .order-data {
+                .order-data-text {
+                    margin-bottom: 5px;
+                }
+
+                .btn, .input {
+                    margin-top: 15px;
+                }
+
+                .order-data-btn {
+                    height: 60px;
+                    width: 294px;
+                }
+            }
+        }
+        .strawberry1 {
+            position: absolute;
+            top: 142px;
+            left: 3px;
+            animation: strawberry1-animation ease 1s alternate infinite;
+        }
+
+        .strawberry2 {
+            position: absolute;
+            bottom: 135px;
+            right: 167px;
+            animation: strawberry2-animation ease 1s alternate infinite;
+            animation-delay: .5s;
+        }
+    }
+}
+
+.order-text {
+    font-size: 18px;
+    font-family: GilroyBold, sans-serif;
+    color: @order-text;
+    -moz-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+    -webkit-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+    -ms-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+}
+
+.input {
+    height: 60px;
+    width: 294px;
+    border-width: 1px;
+    border-color: @page-main-color;
+    border-style: solid;
+    border-radius: 30px;
+    padding: 21px 24px 25px 24px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: GilroyBold, sans-serif;
+    color: @text-color-input;
+    -moz-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+    -webkit-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+    -ms-transform: matrix( 1.00011967125209,0,0,1.00072983989549,0,0);
+    outline: none;
+    background-color: @page-color-beige;
+    &::placeholder {
+        color: @page-main-color;
+    }
+}
+
+.order-errors {
+    @border-color-error: red;
+    margin-left: 24px;
+    margin-top: 1px;
+    font-family: GilroyMedium, sans-serif;
+    display: none;
+}
+
+.footer {
+    background-color: @footer-color;
+
+    .container {
+        padding: 73px 14px 62px 14px;
+        display: flex;
+        justify-content: space-between;
+
+        .logo-rights {
+            img {
+                margin-bottom: 19px;
+            }
+            .rights {
+                font-size: 12px;
+                font-family: GilroyRegular, sans-serif;
+                color: rgb(227, 172, 180);
+                -moz-transform: matrix( 1,0,0,0.99837443537405,0,0);
+                -webkit-transform: matrix( 1,0,0,0.99837443537405,0,0);
+                -ms-transform: matrix( 1,0,0,0.99837443537405,0,0);
+            }
+        }
+
+        .insta {
+            text-align: center;
+
+            img {
+                margin-bottom: 15px;
+            }
+
+            .insta-text {
+                font-size: 16px;
+                font-family: GilroyBold;
+                color: @text-color-white;
+                -moz-transform: matrix( 1,0,0,0.99837443537405,0,0);
+                -webkit-transform: matrix( 1,0,0,0.99837443537405,0,0);
+                -ms-transform: matrix( 1,0,0,0.99837443537405,0,0);
+            }
+        }
+
+        .phone {
+            margin-top: 22px;
+        }
+
+        .rights-375 {
+            display: none;
+        }
+    }
+}
+
+@keyframes logo-animation {
+    0% {
+        width: 250px;
+        height: 250px;
+        opacity: 1;
+    }
+    100% {
+        width: 700px;
+        top: calc(50% - 350px);
+        left: calc(50% - 350px);
+        height: 700px;
+        opacity: 0;
+    }
+}
+
+.present {
+    position: relative;
+}
+
+.present-logo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    height: 90px;
+    border-radius: 50%;
+    z-index: 9;
+}
+
+.present-logo img {
+    border-radius: 50%;
+    animation: present-animation-reverse .5s ease;
+}
+
+.present-logo img::before {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    height: 90px;
+    animation: present-animation-reverse .5s ease;
+    border-radius: 50%;
+    z-index: 99;
+}
+
+.present-text {
+    content: '';
+    width: 172px;
+    height: 64px;
+    font-size: 15px;
+    font-family: GilroyMedium, sans-serif;
+    color: @present;
+    line-height: 1.333;
+    background: #feefee;
+    border-radius: 10px;
+    border: 2px solid @present;
+    box-sizing: border-box;
+    padding: 10px 10px 15px 10px;
+    position: absolute;
+    right: 110px;
+    bottom: 11px;
+    z-index: 99;
+    animation: present-text-animation-reverse .5s ease;
+    opacity: 0;
+}
+
+.present-text::before {
+    content: '';
+    position: absolute;
+    rotate: 45deg;
+    width: 17px;
+    height: 17px;
+    border-top: 2px solid @present;
+    border-bottom: 2px solid #feefee;
+    border-left: 2px solid #feefee;
+    border-right: 2px solid @present;
+    box-sizing: border-box;
+    right: -9px;
+    bottom: 21px;
+    background: #feefee;
+    z-index: 99;
+}
+
+.present-logo:hover .present-text {
+    animation: present-text-animation .5s ease forwards;
+}
+
+.present-logo:hover {
+    animation: present-animation .5s ease forwards;
+}
+
+.menu-375 {
+    display: none;
+}
+
+.close {
+    display: none;
+}
+
+@keyframes present-text-animation {
+    from {
+        bottom: -9px;
+        opacity: 0;
+    }
+    to {
+        bottom: 11px;
+        opacity: 1;
+    }
+}
+
+@keyframes present-text-animation-reverse {
+    from {
+        bottom: 11px;
+        opacity: 1;
+    }
+    to {
+        bottom: -9px;
+        opacity: 0;
+    }
+}
+
+@keyframes present-animation {
+    from {
+        box-shadow: none;
+    }
+    to {
+        box-shadow: 0px 0px 12.6px 2.4px rgba(130, 19, 40, 0.5);
+    }
+}
+
+@keyframes present-animation-reverse {
+    from {
+        box-shadow: 0px 0px 12.6px 2.4px rgba(130, 19, 40, 0.5);
+    }
+    to {
+        box-shadow: none;
+    }
+}
+
+@keyframes btn-animation {
+    from {
+        box-shadow: none;
+    }
+    to {
+        box-shadow: 0px 5px 9px 1px rgba(130, 19, 40, 0.5);
+    }
+}
+
+@keyframes btn-animation-reverse {
+    from {
+        box-shadow: 0px 5px 9px 1px rgba(130, 19, 40, 0.5);
+    }
+    to {
+        box-shadow: none;
+    }
+}
+
+@keyframes advantage-animation1 {
+    from {
+        background-color: @page-main-color;
+    }
+    to {
+        background-color: @page-color-pink;
+    }
+}
+
+@keyframes advantage-animation1-reverse {
+    from {
+        background-color: @page-color-pink;
+    }
+    to {
+        background-color: @page-main-color;
+    }
+}
+
+@keyframes advantage-animation2 {
+    from {
+        color: @text-color-white;
+    }
+    to {
+        color: @page-main-color;
+    }
+}
+
+@keyframes advantage-animation2-reverse {
+    from {
+        color: @page-main-color;
+    }
+    to {
+        color: @text-color-white;
+    }
+}
+
+@keyframes item-animation {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes item-animation-reverse {
+    from {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes strawberry1-animation {
+    from {
+        top: 142px;
+    }
+    to {
+        top: 129px;
+    }
+}
+
+@keyframes strawberry2-animation {
+    from {
+        bottom: 135px;
+    }
+    to {
+        bottom: 148px;
+    }
+}
+
+
+.lds-heart {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    transform: rotate(45deg);
+    transform-origin: 40px 40px;
+    div {
+        top: 32px;
+        left: 32px;
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        background: @loader;
+        animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+        &:after,
+        &:before {
+            content: " ";
+            position: absolute;
+            display: block;
+            width: 32px;
+            height: 32px;
+            background: @loader;
+        }
+        &:before {
+            left: -24px;
+            border-radius: 50% 0 0 50%;
+        }
+        &:after {
+            top: -24px;
+            border-radius: 50% 50% 0 0;
+        }
+    }
+}
+
+@keyframes lds-heart {
+    0% {
+        transform: scale(0.95);
+    }
+    5% {
+        transform: scale(1.1);
+    }
+    39% {
+        transform: scale(0.85);
+    }
+    45% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    background-color: @loader-back;
+    z-index: 99;
+}
+
+@import "adaptive1";
+@import "theme";
